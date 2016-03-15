@@ -2,11 +2,15 @@
 
 .listbar {
   background-color: #ffffff;
-  width: 300px;
+  width: 250px;
   height: 50px;
   display: flex;
   align-items: center;
   color: $text-color-dark;
+}
+
+.extension {
+  width: 300px;
 }
 
 .mainbar {
@@ -60,5 +64,4 @@
     background-color: $bg-grey-medium;
     display: inline-block;
   }
-
 }

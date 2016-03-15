@@ -6,6 +6,8 @@ import { Button, IconButton } from 'react-toolbox/lib/button'
 import Avatar from 'react-toolbox/lib/avatar'
 
 import ListBar from '../../components/ListBar/ListBar'
+import ListWithBars from '../../components/ListWithBars/ListWithBars'
+import TaskList from '../../containers/TaskList/TaskList'
 
 if (__DEBUG__) {
   debug.enable('landing-page:*')
@@ -18,15 +20,56 @@ const GithubIcon = () => (
 )
 /* eslint-enable */
 
+const taskjson = {
+  tasks: [
+    {
+      id: 1,
+      title: 'Task #1',
+    },
+    {
+      id: 2,
+      title: 'Task #2',
+      current: true,
+    },
+    {
+      id: 3,
+      title: 'Task #3',
+    },
+  ],
+}
+
 class StyleGuidePage extends React.Component {
   render() {
     return (
       <div>
         <h1>Style Guide</h1>
         <h2>Lists</h2>
+        <h3>Data from ajax</h3>
         <div style={{ display: 'flex' }}>
           <div style={{ width: '265px', backgroundColor: '#E2E2E2' }}>
-            <br /><br /><Button raised primary >New task</Button><br /><br/>
+            <br /><br /><Button raised primary >New task</Button><br /><br />
+            <TaskList />
+          </div>
+          <div>
+            <div style={{ height: '300px', width: '300px', backgroundColor: '#EBEBEB' }}></div>
+          </div>
+        </div>
+        <h3>ListWithBars</h3>
+        <div style={{ display: 'flex' }}>
+          <div style={{ width: '265px', backgroundColor: '#E2E2E2' }}>
+            <br /><br />
+            <ListWithBars data={taskjson.tasks} extension />
+            <br /><br />
+            <ListWithBars data={taskjson.tasks} />
+          </div>
+          <div>
+            <div style={{ height: '400px', width: '300px', backgroundColor: '#EBEBEB' }}></div>
+          </div>
+        </div>
+        <h3>Internal</h3>
+        <div style={{ display: 'flex' }}>
+          <div style={{ width: '265px', backgroundColor: '#E2E2E2' }}>
+            <br /><br /><Button raised primary >New task</Button><br /><br />
             <div style={{ width: '250px', borderTop: '4px solid #40B39F' }}>
               <ListBar text="Task 1" />
               <ListBar text="Task 2" current />

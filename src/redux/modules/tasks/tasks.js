@@ -1,13 +1,13 @@
 /* ACTIONS */
 import debug from 'debug'
-import R from 'ramda'
+import rKeys from 'ramda/src/keys'
 import { getTasksData } from '../../../api/tasks'
 
 if (__DEBUG__) {
-  debug.enable('user-reducer:*')
+  debug.enable('tasks-reducer:*')
 }
 
-const log = debug('user-reducer:debug')
+const log = debug('tasks-reducer:debug')
 
 export const SET_TASKS = '@@tasks/SET_TASKS'
 export const NEW_TASK = '@@tasks/NEW_TASK'
@@ -43,6 +43,7 @@ export const getJsonTasks = () => {
   }
 }
 
+/* REDUCERS */
 export function taskReducer(state = { tasks: { 0: { id: 0, title: 'Wonder #0' } } }, action) {
   let newState
   switch (action.type) {
@@ -79,7 +80,8 @@ export function taskReducer(state = { tasks: { 0: { id: 0, title: 'Wonder #0' } 
   return newState
 }
 
+/* HELPERS */
 function getHighestKey(tasks) {
-  const arr = R.keys(tasks) // Take all the keys a put in arr
+  const arr = rKeys(tasks) // Take all the keys a put in arr
   return Math.max(...arr) // spread the arr to numbers, and get the max
 }

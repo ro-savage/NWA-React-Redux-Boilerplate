@@ -42,6 +42,7 @@ const config = {
     output: {
       publicPath: '/',
     },
+    devtool: 'cheap-module-eval-source-map',
   },
 
   compiler: {

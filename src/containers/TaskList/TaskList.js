@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Button } from 'react-toolbox/lib/button'
 import { getJsonTasks } from '../../redux/modules/tasks/tasks'
 import autoBind from 'react-autobind'
-import R from 'ramda'
+import rValues from 'ramda/src/values'
 
 class TaskList extends React.Component {
 
@@ -27,11 +27,11 @@ class TaskList extends React.Component {
   }
 
   makeArrFromObj(object) {
-    return R.values(object)
+    return rValues(object)
   }
 
   render() {
-    const tasks = this.props.tasks.tasks
+    const tasks = this.props.tasks
     return (
       <div>
         <br /><br />
@@ -43,6 +43,6 @@ class TaskList extends React.Component {
   }
 }
 
-const mapStateToProps = ({ tasks }) => ({ tasks })
+const mapStateToProps = ({ tasks }) => ({ tasks: tasks.tasks })
 
 export default connect(mapStateToProps)(TaskList)

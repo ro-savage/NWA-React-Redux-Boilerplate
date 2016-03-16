@@ -7,6 +7,7 @@ import { reducer as form } from 'redux-form'
 import user from './modules/user/user-reducer'
 import auth from './modules/auth/auth-reducer'
 import { taskReducer as tasks } from './modules/tasks/tasks'
+import { userAuthReducer as userAuth } from './modules/user-auth/user-auth'
 
 export default combineReducers({
   auth,
@@ -17,4 +18,5 @@ export default combineReducers({
   documentTitle,
   form,
   tasks,
+  userAuth,
 })

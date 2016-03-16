@@ -27,10 +27,10 @@ export default class AddTaskBtnDialog extends React.Component {
     this.setState({ active: !this.state.active })
   }
 
-  handleChange(e) {
+  handleChange(value) {
     this.setState({
       task: {
-        title: e,
+        title: value,
       },
     })
   }

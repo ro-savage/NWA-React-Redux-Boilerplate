@@ -1,34 +1,37 @@
-import React from 'react';
-import TestUtils from 'react-addons-test-utils';
-import DropdownProfileCard from './DropdownProfileCard';
+/* eslint-disable */
+import React from 'react'
+import expect from 'expect'
+import { shallow, mount, render } from 'enzyme'
+import DropdownProfileCard from './DropdownProfileCard'
+import styles from './DropdownProfileCard.scss'
 import { Link } from 'react-router';
 
-function shallowRender(component) {
-  const renderer = TestUtils.createRenderer();
 
-  renderer.render(component);
-  return renderer.getRenderOutput();
-}
+describe("[Component] DropdownProfileCard", function() {
 
-function shallowRenderWithProps(props = {}) {
-  return shallowRender(<DropdownProfileCard {...props} />);
-}
+  it("should render as a <Link> node", function() {
+    const wrapper = shallow(<DropdownProfileCard picture="picture" name="name" nickname="nick" />);
+    expect(wrapper.type()).toEqual(Link);
+  })
 
-describe('[Page] Landing Page', function landingPageSpec() {
-  beforeEach(() => {
-    this.props = {
-      picture: 'picture',
-      name: 'A User',
-      nickname: 'a.user',
-    };
-    this.component = shallowRenderWithProps(this.props);
-  });
+  it("<Link> should contain correct styles", function() {
+    const wrapper = shallow(<DropdownProfileCard picture="picture.jpg" name="name" nickname="nick" />);
+    expect(wrapper.find(`.${styles.container}`).length).toEqual(1)
+  })
 
-  it('Should render as a <Link>', () => {
-    expect(this.component.type).to.equal(Link);
-  });
+  it("Should render 3 children", function() {
+    const wrapper = shallow(<DropdownProfileCard picture="picture" name="name" nickname="nick" />);
+    expect(wrapper.children().length).toEqual(3);
+  })
 
-  it('Should render 3 children', () => {
-    expect(this.component.props.children.length).to.equal(3);
-  });
-});
+  it('should render a render the nickname <span>', () => {
+    const wrapper = shallow(<DropdownProfileCard picture="picture.jpg" name="name" nickname="nick" />);
+    expect(wrapper.contains(<span className={styles.nickname}>nick</span>)).toEqual(true);
+  })
+
+  it("Should render username", function() {
+    const wrapper = shallow(<DropdownProfileCard picture="picture.jpg" name="name" nickname="nick" />);
+    expect(wrapper.find(`.${styles.username}`).length).toEqual(1)
+  })
+
+})

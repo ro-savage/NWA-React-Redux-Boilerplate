@@ -10,10 +10,12 @@ export default class ListWithBars extends React.Component {
   }
 
   render() {
+    const { data, extension } = this.props
+
     return (
       <div className={styles.container}>
-        {this.props.data.map((task) =>
-          <ListBar text={task.title} current={task.current} key={task.id} extension={this.props.extension} />
+        {data.map((task) =>
+          <ListBar text={task.title} current={task.current} key={task.id} extension={extension} />
         )}
       </div>
     )

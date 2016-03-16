@@ -1,44 +1,48 @@
 import React from 'react'
 import ListWithBars from '../../components/ListWithBars/ListWithBars'
+import { connect } from 'react-redux'
+import { Button } from 'react-toolbox/lib/button'
+import { getJsonTasks } from '../../redux/modules/tasks/tasks'
+import autoBind from 'react-autobind'
+import R from 'ramda'
 
-
-export default class TaskList extends React.Component {
+class TaskList extends React.Component {
 
   static propTypes = {
-    tasks: React.PropTypes.array,
+    tasks: React.PropTypes.object,
+    dispatch: React.PropTypes.func.isRequired,
   }
 
   constructor(props) {
     super(props)
-    this.state = { tasks: [] }
+    autoBind(this)
   }
 
-  componentDidMount() {
-    this.loadTasks()
+  async componentWillMount() {
+    this.props.dispatch(getJsonTasks())
   }
 
-  // ** ES7 **
-  async loadTasks() {
-    const response = await fetch('/api/tasks.json')
-    const data = await response.json()
-    this.setState({
-      tasks: data.tasks,
-    })
+  getTasks() {
+    this.props.dispatch(getJsonTasks())
+  }
 
-     // ** ES6 **
-     // fetch('/api/tasks.json')
-     //  .then((response) => response.json()
-     //  .then((data) => {
-     //    this.setState({
-     //      tasks: data.tasks,
-     //    })
-     //    console.log(this.state.tasks)
-     //  }))
+  makeArrFromObj(object) {
+    return R.values(object)
   }
 
   render() {
+    const tasks = this.props.tasks.tasks
     return (
-        <ListWithBars data={this.state.tasks} extension />
+      <div>
+        <br /><br />
+        <Button raised primary onClick={this.getTasks}>Get Tasks</Button>
+        <br /><br />
+        <ListWithBars data={this.makeArrFromObj(tasks)} extension />
+      </div>
     )
   }
 }
+
+const mapStateToProps = ({ tasks }) => ({ tasks })
+
+export default connect(mapStateToProps)(TaskList)

@@ -5,9 +5,9 @@ import { connect } from 'react-redux'
 import { Button, IconButton } from 'react-toolbox/lib/button'
 import Avatar from 'react-toolbox/lib/avatar'
 
-import ListBar from '../../components/ListBar/ListBar'
 import ListWithBars from '../../components/ListWithBars/ListWithBars'
 import TaskList from '../../containers/TaskList/TaskList'
+import AddTaskBtnDialog from '../../components/AddTaskBtnDialog/AddTaskBtnDialog'
 
 if (__DEBUG__) {
   debug.enable('landing-page:*')
@@ -44,14 +44,14 @@ class StyleGuidePage extends React.Component {
       <div>
         <h1>Style Guide</h1>
         <h2>Lists</h2>
-        <h3>Data from ajax</h3>
+        <h3>Task list (API Data)</h3>
         <div style={{ display: 'flex' }}>
           <div style={{ width: '265px', backgroundColor: '#E2E2E2' }}>
-            <br /><br /><Button raised primary >New task</Button><br /><br />
+            <AddTaskBtnDialog />
             <TaskList />
           </div>
           <div>
-            <div style={{ height: '300px', width: '300px', backgroundColor: '#EBEBEB' }}></div>
+            <div style={{ height: '350px', width: '300px', backgroundColor: '#EBEBEB' }}></div>
           </div>
         </div>
         <h3>ListWithBars</h3>
@@ -64,20 +64,6 @@ class StyleGuidePage extends React.Component {
           </div>
           <div>
             <div style={{ height: '400px', width: '300px', backgroundColor: '#EBEBEB' }}></div>
-          </div>
-        </div>
-        <h3>Internal</h3>
-        <div style={{ display: 'flex' }}>
-          <div style={{ width: '265px', backgroundColor: '#E2E2E2' }}>
-            <br /><br /><Button raised primary >New task</Button><br /><br />
-            <div style={{ width: '250px', borderTop: '4px solid #40B39F' }}>
-              <ListBar text="Task 1" />
-              <ListBar text="Task 2" current />
-              <ListBar text="Task 3" />
-            </div>
-          </div>
-          <div>
-            <div style={{ height: '300px', width: '300px', backgroundColor: '#EBEBEB' }}></div>
           </div>
         </div>
         <h2>Buttons</h2>

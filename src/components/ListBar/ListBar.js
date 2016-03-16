@@ -21,12 +21,10 @@ export default class ListBar extends React.Component {
   }
 
   createClasses() {
-    const classes = []
+    const classes = [styles.listbar]
 
     if (this.props.current) {
       classes.push(styles.current)
-    } else {
-      classes.push(styles.listbar)
     }
 
     if (this.props.extension) {
@@ -37,13 +35,15 @@ export default class ListBar extends React.Component {
   }
 
   render() {
+    const { text, extension } = this.props
+
     return (
       <div>
         <div className={this.createClasses()}>
           <div className={styles.mainbar}>
-              <FontIcon value="check_circle" />{this.props.text}
+              <FontIcon value="check_circle" />{text}
           </div>
-          {this.addExtension(this.props.extension)}
+          {this.addExtension(extension)}
         </div>
       </div>
     )

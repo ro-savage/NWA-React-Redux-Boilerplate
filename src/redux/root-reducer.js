@@ -6,6 +6,7 @@ import { languageReducer as language } from './modules/language/language'
 import { reducer as form } from 'redux-form'
 import user from './modules/user/user-reducer'
 import auth from './modules/auth/auth-reducer'
+import { taskReducer as tasks } from './modules/tasks/tasks'
 
 export default combineReducers({
   auth,
@@ -15,4 +16,5 @@ export default combineReducers({
   routing,
   documentTitle,
   form,
+  tasks,
 })

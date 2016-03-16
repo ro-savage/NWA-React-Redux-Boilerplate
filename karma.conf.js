@@ -18,6 +18,11 @@ const karmaWebpackConfig = Object.assign({}, webpackConfig, {
     new webpack.DefinePlugin({ DEVELOPMENT, PRODUCTION, __DEBUG__ }),
     new webpack.optimize.OccurrenceOrderPlugin(),
   ],
+  externals: {
+    cheerio: 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': 'window',
+  },
 })
 
 module.exports = (karmaConfig) => {

@@ -56,6 +56,11 @@ class MainHeader extends React.Component {
           <Nav pullRight>
             <LanguageSelectionDropdown />
             <li role="presentation">
+              <Link activeClassName="active" to="/login">
+                Login page
+              </Link>
+            </li>
+            <li role="presentation">
               <Link activeClassName="active" to="/styleguide">
                 <FormattedMessage {...links.styleGuide} />
               </Link>

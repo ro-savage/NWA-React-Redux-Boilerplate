@@ -10,7 +10,7 @@ import TaskList from '../../containers/TaskList/TaskList'
 import AddTaskBtnDialog from '../../components/AddTaskBtnDialog/AddTaskBtnDialog'
 
 if (__DEBUG__) {
-  debug.enable('landing-page:*')
+  debug.enable('styleguide-page:*')
 }
 /* eslint-disable */
 const GithubIcon = () => (

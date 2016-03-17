@@ -30,8 +30,6 @@ export const requestLogin = (creds) => {
 export function userAuthReducer(state = { isAuthenticated: false }, action) {
   let newState
 
-  console.log('***ACTION CALLED***:', action)
-
   switch (action.type) {
     case LOGIN_SUCCESS:
       console.log('Login success')

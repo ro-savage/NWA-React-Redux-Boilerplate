@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ro-savage/nwa-react-redux-boilerplate.svg?branch=master)](https://travis-ci.org/ro-savage/nwa-react-redux-boilerplate)
 # Node With Attiude React/Redux Boilerplate
 
 **WORK IN PROGRESS - DO NOT USE**
@@ -10,13 +11,14 @@ Changes are:
 * react-toolbox replaces react-bootstrap, for a material design look
 * Updating linting to use airbnb with semi-colons
 * Updated layout structure
-* Emezyne and expect added to testing framework (coming soon)
+* Emezyne and expect added to testing framework
+* Add Ramda support and use in preference to lodash
 * Added support for redux-cli (coming soon)
 * Added immutableJS (comsing soon)
 * Replace axios with fetch (coming soon)
 * Replace react-transform-hmr with react-hot-loader. See [redux issue#1455](https://github.com/reactjs/redux/pull/1455) (coming soon)
 * Updated support for react-intl (coming soon)
-* Add Ramda support and use in preference to lodash (coming soon)
+* Remove flowtype
 
 ## Features
 

@@ -1,6 +1,7 @@
 /* ACTIONS */
 import debug from 'debug'
 import { validateLogin } from '../../../api/auth'
+import { toastr } from 'react-redux-toastr'
 
 if (__DEBUG__) {
   debug.enable('user-auth:*')
@@ -21,7 +22,14 @@ function loginSuccess(user) {
 export const requestLogin = (creds) => {
   return dispatch => {
     validateLogin(creds).then((data) => {
+      toastr.success('The title', 'The message')
       dispatch(loginSuccess(data))
+    }).catch((err) => {
+      if (err && err.type && err.message) {
+        toastr.error(err.type, err.message)
+      } else {
+        toastr.error('Login error', 'Unknown error')
+      }
     })
   }
 }

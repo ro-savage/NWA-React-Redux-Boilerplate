@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router'
+import ReduxToastr from 'react-redux-toastr'
 
 export default class Root extends React.Component {
 
@@ -17,6 +18,7 @@ export default class Root extends React.Component {
           <Router history={this.props.history}>
             {this.props.routes}
           </Router>
+          <ReduxToastr />
         </div>
       </Provider>
     )

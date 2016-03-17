@@ -9,6 +9,9 @@ import ListWithBars from '../../components/ListWithBars/ListWithBars'
 import TaskList from '../../containers/TaskList/TaskList'
 import AddTaskBtnDialog from '../../components/AddTaskBtnDialog/AddTaskBtnDialog'
 
+import { toastr } from 'react-redux-toastr'
+
+
 if (__DEBUG__) {
   debug.enable('styleguide-page:*')
 }
@@ -119,6 +122,20 @@ class StyleGuidePage extends React.Component {
         <Avatar title="Javier" img="https://placeimg.com/80/80/animals" />
         &nbsp;&nbsp;
         <Avatar style={{ backgroundColor: 'yellowgreen' }}><GithubIcon /></Avatar>
+        <h2>Toasters</h2>
+        <p>See: <a href="https://github.com/diegoddox/react-redux-toastr">react-redux-toastr github</a></p>
+        {/* eslint-disable */}
+        <Button raised primary onClick={() => toastr.confirm('Are you sure?', {
+          onOk: () => toastr.success('You have click on the ok confirm button'),
+          onCancel: () => toastr.error('You have click on the cancel confirm button')})}>Confirm</Button>&nbsp;
+        <Button raised primary onClick={() => toastr.message('A html message', 'This can contain <b>html</b> and <span style="color: red">stuff</span>')}>Message</Button>&nbsp;
+        <Button raised primary onClick={() => toastr.info('Some information')}>Info</Button>&nbsp;
+        <Button raised primary onClick={() => toastr.success('You win', 'Keep up the winning!')}>Success</Button>&nbsp;
+        <Button raised primary onClick={() => toastr.warning('You have been wanred', 'Do NOT do that again!')}>Warning</Button>&nbsp;
+        <Button raised primary onClick={() => toastr.error('Error!', 'You did it again!')}>Error</Button>&nbsp;
+        <Button raised primary onClick={() => toastr.clean()}>Clean</Button>&nbsp;
+        {/* eslint-enable */}
+        <br /><br />
       </div>
     )
   }

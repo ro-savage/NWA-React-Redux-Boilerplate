@@ -10,8 +10,11 @@ export async function validateLogin(creds) {
   try {
     const response = await fetch('http://private-9ad5c-macvadhorizon.apiary-mock.com/auth', config)
     return await response.json()
-  } catch (e) {
-    console.log('error', e)
-    return null
+  } catch (error) {
+    return Promise.reject({
+      error,
+      type: 'Login failed',
+      message: 'Your login failed. Please try again or contact support',
+    })
   }
 }

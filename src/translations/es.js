@@ -23,7 +23,7 @@ export default {
   'navigation.account': 'Cuenta',
   'navigation.faq': 'FAQ',
   'navigation.help': 'Ayuda',
-  'navigation.home': 'Opencredo React Boilerplate',
+  'navigation.home': 'NWA React Redux Boilerplate',
   'navigation.logIn': 'Iniciar Sesión',
   'navigation.logOut': 'Terminar Sesión',
   'navigation.policies': 'Normas',

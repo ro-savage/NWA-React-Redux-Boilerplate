@@ -11,8 +11,8 @@ const log = debug('tasks-reducer:debug')
 
 export const SET_TASKS = '@@tasks/SET_TASKS'
 export const NEW_TASK = '@@tasks/NEW_TASK'
+export const MAKE_CURRENT = '@@tasks/MAKE_CURRENT'
 
-// const tasks = [{ id: 2, title: 'task2' }, { id: 3, title: 'task3' }]
 
 export function getTasks(tasks) {
   return {
@@ -25,6 +25,13 @@ export function newTask(task) {
   return {
     type: NEW_TASK,
     task,
+  }
+}
+
+export function makeTaskCurrent(id = 2) {
+  return {
+    type: MAKE_CURRENT,
+    id,
   }
 }
 
@@ -44,7 +51,7 @@ export const getJsonTasks = () => {
 }
 
 /* REDUCERS */
-export function taskReducer(state = { tasks: { 0: { id: 0, title: 'Wonder #0' } } }, action) {
+export function taskReducer(state = { tasks: { 0: { id: 0, title: 'Wonder #0' } }, current: 0 }, action) {
   let newState
   switch (action.type) {
     case SET_TASKS:
@@ -64,6 +71,13 @@ export function taskReducer(state = { tasks: { 0: { id: 0, title: 'Wonder #0' } 
             id: newId,
           },
         },
+      }
+      break
+    }
+    case MAKE_CURRENT: {
+      newState = {
+        ...state,
+        current: action.id,
       }
       break
     }

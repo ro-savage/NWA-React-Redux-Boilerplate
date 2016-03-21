@@ -44,7 +44,8 @@
     float: left;
     height: 100%;
     width: calc(100% - 50px);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     transition: width 0.3s ease-in;
   }
 
@@ -52,7 +53,8 @@
     float: left;
     height: 100%;
     width: calc(100% - 200px);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     transition: width 0.3s ease-in;
   }
 
@@ -76,7 +78,8 @@
     float: left;
     height: 100%;
     width: calc(100% - 50px);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     transition: width 0.3s ease-in;
   }
 
@@ -84,7 +87,8 @@
     float: left;
     height: 100%;
     width: calc(100% - 200px);
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     transition: width 0.3s ease-in;
   }
 }
@@ -111,6 +115,8 @@
     height: 100%;
     width: calc(100%);
     transition: width 0.3s ease-in;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .main-content-menu-open {
@@ -118,6 +124,8 @@
     height: 100%;
     width: calc(100% - 200px);
     transition: width 0.3s ease-in;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .burgerMenuBtn {

@@ -2,34 +2,19 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Responsive as ResponsiveReactGridLayout } from 'react-grid-layout'
 import { connect } from 'react-redux'
-import reactGridLayoutWidthProvider from '../../helpers/ReactGridLayoutWidthHelper/ReactGridLayoutWidthProvider'
-const ReactGridLayoutResponsiveWP = reactGridLayoutWidthProvider(ResponsiveReactGridLayout)
 
 class GridLayout extends React.Component {
 
   static propTypes = {
     menuOpen: React.PropTypes.bool,
-    children: React.PropTypes.element,
+    layouts: React.PropTypes.object.isRequired,
+    children: React.PropTypes.arrayOf(React.PropTypes.element),
   };
 
   constructor(props) {
     super(props)
-    const layouts = {
-      lg: [
-        { x: 0, y: 0, w: 4, h: 12, i: '0' },
-        { x: 4, y: 0, w: 8, h: 12, i: '1' },
-      ],
-      md: [
-        { x: 0, y: 0, w: 4, h: 12, i: '0' },
-        { x: 4, y: 0, w: 8, h: 12, i: '1' },
-      ],
-      sm: [
-        { x: 0, y: 0, w: 4, h: 12, i: '0' },
-        { x: 0, y: 12, w: 4, h: 12, i: '1' },
-      ],
-    }
     this.state = {
-      layouts,
+      layouts: this.props.layouts,
       width: 1280,
       menuOpen: this.props.menuOpen,
     }
@@ -105,15 +90,13 @@ class GridLayout extends React.Component {
 
   render() {
     return (
-      <ResponsiveReactGridLayout className="layout" rowHeight={10}
+      <ResponsiveReactGridLayout className="layout" rowHeight={20}
         layouts={this.state.layouts} margin={[0, 0]} autoSize={false}
         breakpoints={{ lg: 1024, md: 768, sm: 0 }}
         cols={{ lg: 12, md: 12, sm: 4 }}
         width={this.state.width}
       >
         {this.props.children}
-        <div key={0} className="gridBox">0</div>
-        <div key={1} className="gridBox">1</div>
       </ResponsiveReactGridLayout>
     )
   }

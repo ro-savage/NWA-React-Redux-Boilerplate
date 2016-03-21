@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Button from 'react-toolbox/lib/button'
+import { IconButton } from 'react-toolbox/lib/button'
 
 import { toggleMenu } from '../../redux/modules/layout/layout'
 
@@ -10,10 +10,10 @@ const LeftMenu = (props) => {
   }
   return (
     <div className={`gridBox ${props.menuOpen ? 'left-menu-open' : 'left-menu'}`} id="leftMenu" >
-      <Button
+      <IconButton
         onClick={handleClick}
         icon="open_with"
-        floating accent
+        floating secondary
       />
     </div>
   )

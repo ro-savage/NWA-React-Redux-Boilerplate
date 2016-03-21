@@ -1,6 +1,7 @@
 @import "../../styles/base";
 
 .container {
-  width: 250px;
+  width: 100%;
   border-top: 4px solid #40B39F;
+  box-shadow: -7px 6px 8px -7px rgba(0,0,0,0.40);
 }

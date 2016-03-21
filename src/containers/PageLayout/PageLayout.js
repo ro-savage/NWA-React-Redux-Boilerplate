@@ -10,7 +10,10 @@ const PageLayout = (props) =>
       <TopMenu />
       <div className="menu-content-container">
         <LeftMenu />
-        <div className={`${props.menuOpen ? 'main-content-menu-open' : 'main-content'}`} id="mainContent">
+        <div
+          className={`${props.menuOpen ? 'main-content-menu-open' : 'main-content'}`}
+          id="mainContent" style={{ backgroundColor: 'rgb(226, 226, 226)' }}
+        >
           {props.children}
         </div>
       </div>

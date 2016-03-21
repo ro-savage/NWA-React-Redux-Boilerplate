@@ -1,5 +1,6 @@
 /* ACTIONS */
 import debug from 'debug'
+import { browserHistory } from 'react-router'
 import { validateLogin } from '../../../api/auth'
 import { toastr } from 'react-redux-toastr'
 
@@ -22,8 +23,9 @@ function loginSuccess(user) {
 export const requestLogin = (creds) => {
   return dispatch => {
     validateLogin(creds).then((data) => {
-      toastr.success('The title', 'The message')
+      toastr.success('Login', 'Login Successful')
       dispatch(loginSuccess(data))
+      browserHistory.push('/home')
     }).catch((err) => {
       if (err && err.type && err.message) {
         toastr.error(err.type, err.message)

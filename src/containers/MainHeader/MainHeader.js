@@ -56,7 +56,7 @@ class MainHeader extends React.Component {
           <Nav pullRight>
             <LanguageSelectionDropdown />
             <li role="presentation">
-              <Link activeClassName="active" to="/login">
+              <Link activeClassName="active" to="/">
                 Login page
               </Link>
             </li>

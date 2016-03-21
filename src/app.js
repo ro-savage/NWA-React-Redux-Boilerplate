@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { browserHistory } from 'react-router'
 import configureStore from './redux/configure-store'
-import routes from './routes'
 import Root from './containers/Root'
 import debug from 'debug'
 import { addLocaleData } from 'react-intl'
@@ -20,6 +19,6 @@ const store = configureStore({}, browserHistory)
 
 // Render the React application to the DOM
 ReactDOM.render(
-  <Root history={browserHistory} store={store} routes={routes} />,
+  <Root history={browserHistory} store={store} />,
   document.getElementById('root')
 )

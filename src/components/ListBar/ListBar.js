@@ -1,12 +1,20 @@
 import React from 'react'
 import styles from './ListBar.scss'
 import FontIcon from 'react-toolbox/lib/font_icon'
+import autoBind from 'react-autobind'
 
 export default class ListBar extends React.Component {
   static propTypes = {
+    id: React.PropTypes.number,
     text: React.PropTypes.string.isRequired,
     current: React.PropTypes.bool,
     extension: React.PropTypes.bool,
+    onClick: React.PropTypes.func,
+  }
+
+  constructor() {
+    super()
+    autoBind(this)
   }
 
   addExtension(required) {
@@ -34,12 +42,16 @@ export default class ListBar extends React.Component {
     return classes.join(' ')
   }
 
+  handleClick() {
+    this.props.onClick(this.props)
+  }
+
   render() {
     const { text, extension } = this.props
 
     return (
       <div>
-        <div className={this.createClasses()}>
+        <div className={this.createClasses()} onClick={this.handleClick}>
           <div className={styles.mainbar}>
               <FontIcon value="check_circle" />{text}
           </div>

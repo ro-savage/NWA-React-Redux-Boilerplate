@@ -13,6 +13,7 @@ import AppLayout from 'containers/AppLayout'
 import PageLayout from 'containers/PageLayout/PageLayout'
 import StyleGuidePage from 'pages/StyleGuidePage/StyleGuidePage'
 import LoginPage from 'pages/LoginPage/LoginPage'
+import TaskPage from 'pages/TaskPage/TaskPage'
 import GridPage from 'pages/GridPage/GridPage'
 import TasksPage from 'pages/TasksPage/TasksPage'
 
@@ -25,8 +26,12 @@ export default(
     </Route>
     <Route component={PageLayout}>
       <Route path="/login" component={LoginPage} />
-      <Route path="/tasks" component={TasksPage} />
+      <Route path="/tasks" component={TasksPage} >
+        <Route path="/tasks/:taskId" component={TaskPage} />
+      </Route>
     </Route>
+    <Route path="/styleguide" component={StyleGuidePage} />
+    <Route path="/login" component={LoginPage} />
     { /* until a match is found... */ }
     <Route component={HeroPageLayout}>
       <Route path="/" component={LandingPage} />

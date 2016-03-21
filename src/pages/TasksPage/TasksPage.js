@@ -1,7 +1,11 @@
 import React from 'react'
 import GridPageLayout from '../../containers/GridPageLayout'
 import TaskList from '../../containers/TaskList/TaskList'
+import TaskPage from '../../pages/TaskPage/TaskPage'
 class TasksPage extends React.Component {
+  static propTypes = {
+    params: React.PropTypes.object,
+  }
   render() {
     const layouts = {
       lg: [
@@ -16,8 +20,8 @@ class TasksPage extends React.Component {
       ],
       sm: [
         { x: 0, y: 0, w: 4, h: 24, i: '0' },
-        { x: 0, y: 24, w: 4, h: 12, i: '1' },
-        { x: 4, y: 12, w: 8, h: 12, i: '2' },
+        { x: 0, y: 12, w: 4, h: 24, i: '1' },
+        { x: 4, y: 24, w: 4, h: 12, i: '2' },
       ],
     }
 
@@ -26,7 +30,7 @@ class TasksPage extends React.Component {
         <div key={0} style={{ backgroundColor: '#E2E2E2', paddingLeft: '10px' }}>
           <TaskList />
         </div>
-        <div key={1} className="gridBox">1</div>
+        <div key={1} className="gridBox"><TaskPage taskId={this.props.params.taskId} /></div>
         <div key={2} className="gridBox">2</div>
       </GridPageLayout>
     )

@@ -2,16 +2,22 @@
   "tasks": {
   "1": {
     "id": 1,
-    "title": "Think #1"
+    "title": "Think #1",
+    "productDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis efficitur libero, eget varius eros rutrum a. Donec aliquam tempus turpis et dignissim. Ut tristique molestie dapibus. Integer vel egestas odio. Suspendisse rutrum interdum turpis, nec faucibus lorem iaculis in.",
+    "productImgs": ["http://placeimg.com/100/100/people", "http://placeimg.com/100/100/tech", "http://placeimg.com/100/100/animals/grayscale"]
   },
   "2": {
     "id": 2,
     "title": "Learn #2",
-    "current": true
+    "productDesc": "Quisque sit amet enim leo. Nulla aliquam tellus a nisi laoreet, sed fermentum metus tempus. Duis auctor varius nisl nec luctus. Suspendisse id accumsan diam. Donec vehicula lobortis luctus.",
+    "productImgs": ["http://placeimg.com/100/100/arch/greyscale", "http://placeimg.com/100/100/nature", "http://placeimg.com/100/100/people/grayscale"]
   },
   "3": {
     "id": 3,
-    "title": "Do #3"
+    "title": "Do #3",
+    "productDesc": "Cras congue condimentum orci. Praesent purus velit, vulputate sit amet augue vel, tristique accumsan metus. Integer convallis, turpis eget iaculis pharetra, turpis nibh porttitor neque, ac vehicula libero libero eu arcu. Suspendisse mollis ligula in risus sollicitudin, et luctus tortor pretium. Donec quam dolor, viverra ac pharetra sit amet, finibus vitae justo. Phasellus ultricies posuere accumsan. In ut suscipit eros, et fermentum ante. Nam porttitor massa sit amet condimentum tristique.",
+    "productImgs": ["http://placeimg.com/100/100/tech/greyscale", "http://placeimg.com/100/100/animals", "http://placeimg.com/100/100/tech/sepia"]
+
   }
 }
 }

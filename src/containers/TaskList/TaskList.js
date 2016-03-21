@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Button } from 'react-toolbox/lib/button'
+import { push } from 'react-router-redux'
 import autoBind from 'react-autobind'
 import rValues from 'ramda/src/values'
 
@@ -53,7 +54,10 @@ const mapStateToProps = ({ tasks }) => ({ tasks: tasks.tasks, currentTask: tasks
 // Get the dispatch func and pass a prop called getTasks as a func that dispatches the getJsonTaks action creator
 const mapDispatchToProps = (dispatch) => ({
   getTasks: () => { dispatch(getJsonTasks())},
-  makeCurrentTask: (clickedComponentsProps) => { dispatch(makeTaskCurrent(clickedComponentsProps.id)) },
+  makeCurrentTask: (clickedComponentsProps) => {
+    dispatch(makeTaskCurrent(clickedComponentsProps.id))
+    dispatch(push(`/tasks/${clickedComponentsProps.id}`))
+  },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskList)

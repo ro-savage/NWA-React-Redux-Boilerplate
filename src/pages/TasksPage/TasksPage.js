@@ -5,14 +5,14 @@ import { connect } from 'react-redux'
 import reactGridLayoutWidthProvider from '../../helpers/ReactGridLayoutWidthHelper/ReactGridLayoutWidthProvider'
 const ReactGridLayoutResponsiveWP = reactGridLayoutWidthProvider(ResponsiveReactGridLayout)
 
-class GridLayout extends React.Component {
+class TasksPage extends React.Component {
 
   static propTypes = {
     menuOpen: React.PropTypes.bool,
-    children: React.PropTypes.element,
   };
 
   constructor(props) {
+    super(props)
     super(props)
     const layouts = {
       lg: [
@@ -111,7 +111,6 @@ class GridLayout extends React.Component {
         cols={{ lg: 12, md: 12, sm: 4 }}
         width={this.state.width}
       >
-        {this.props.children}
         <div key={0} className="gridBox">0</div>
         <div key={1} className="gridBox">1</div>
       </ResponsiveReactGridLayout>
@@ -121,4 +120,4 @@ class GridLayout extends React.Component {
 
 const mapStateToProps = ({ layout }) => ({ menuOpen: layout.menuOpen })
 
-export default connect(mapStateToProps)(GridLayout)
+export default connect(mapStateToProps)(TasksPage)

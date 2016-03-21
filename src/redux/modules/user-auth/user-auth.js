@@ -1,4 +1,4 @@
-/* ACTIONS */
+// ******* ACTIONS ********
 import debug from 'debug'
 import { validateLogin } from '../../../api/auth'
 import { toastr } from 'react-redux-toastr'
@@ -10,7 +10,6 @@ if (__DEBUG__) {
 const log = debug('user-auth:debug')
 
 export const LOGIN_SUCCESS = '@@user-auth/LOGIN_REQUEST'
-export const TESTING = 'TESTING'
 
 function loginSuccess(user) {
   return {

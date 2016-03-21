@@ -9,19 +9,23 @@ import LandingPage from 'pages/LandingPage/LandingPage'
 import AboutPage from 'pages/AboutPage/AboutPage'
 import ProfileEditPage from 'pages/ProfileEditPage/ProfileEditPage'
 
-import GridPageLayout from 'containers/GridPageLayout'
+import AppLayout from 'containers/AppLayout'
+import PageLayout from 'containers/PageLayout/PageLayout'
 import StyleGuidePage from 'pages/StyleGuidePage/StyleGuidePage'
 import LoginPage from 'pages/LoginPage/LoginPage'
 import GridPage from 'pages/GridPage/GridPage'
+import TasksPage from 'pages/TasksPage/TasksPage'
 
 export default(
   // Route components without path will render their children...
   <Route component={AppContainer}>
-    <Route component={GridPageLayout}>
+    <Route component={AppLayout}>
       <Route path="/styleguide" component={StyleGuidePage} />
-      <Route path="/login" component={LoginPage} />
       <Route path="/grid" component={GridPage} />
-
+    </Route>
+    <Route component={PageLayout}>
+      <Route path="/login" component={LoginPage} />
+      <Route path="/tasks" component={TasksPage} />
     </Route>
     { /* until a match is found... */ }
     <Route component={HeroPageLayout}>

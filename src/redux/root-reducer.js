@@ -8,6 +8,7 @@ import user from './modules/user/user-reducer'
 import auth from './modules/auth/auth-reducer'
 import { taskReducer as tasks } from './modules/tasks/tasks'
 import { userAuthReducer as userAuth } from './modules/user-auth/user-auth'
+import { layoutReducer as layout } from './modules/layout/layout'
 import { reducer as toastrReducer } from 'react-redux-toastr'
 
 export default combineReducers({
@@ -20,5 +21,6 @@ export default combineReducers({
   form,
   tasks,
   userAuth,
+  layout,
   toastr: toastrReducer,
 })

@@ -18,20 +18,20 @@ class TaskPage extends React.Component {
     const task = this.props.tasks[props.currentTask]
     console.log('taskPage', props)
     return (
-      <div style={{ borderTop: '2px solid orange', width: '100%', height: '100%', backgroundColor: '#EBEBEB' }}>
+      <div className="grid-100" style={{ borderTop: '2px solid orange', backgroundColor: '#EBEBEB' }}>
         <h2>{task.title}</h2>
-        <div style={{ backgroundColor: '#FFFFFF', width: '100%', display: 'flex' }}>
-          <div style={{ width: '50%', height: '100%', padding: '5px' }}>
+        <div className="grid-100" style={{ backgroundColor: '#FFFFFF' }}>
+          <div className="grid-50" style={{ height: '100%', padding: '5px' }}>
             <b>DESCRIPTION</b>
             <p>{task.productDesc}</p>
           </div>
-          <div style={{ width: '50%', height: '100%', padding: '5px' }}>
+          <div className="grid-50" style={{ height: '100%', padding: '5px' }}>
             <div>
               {task.productImgs.map((imgUrl) =>
                 <img key={imgUrl} src={imgUrl} style={{ paddingRight: '3px' }} />
               )}
             </div>
-            <div>
+            <div className="grid-100">
               <b>Product details</b><br /><br />
               Product name: <b>Awesome Stuff</b><br /><br />
               Barcode: <b>123124324324234</b><br /><br />

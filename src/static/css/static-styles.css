@@ -27,17 +27,20 @@
 @media (min-width: 1025px) {
 
   .left-menu {
-    width: 50px;
+    margin-left: -150px;
+    width: 200px;
     height: 100%;
     float: left;
-    transition: width 0.3s ease-in;
+    transition: margin-left 0.3s ease-in;
+    text-align: right;
   }
 
   .left-menu-open {
     width: 200px;
     height: 100%;
     float: left;
-    transition: width 0.3s ease-in;
+    transition: margin-left 0.3s ease-in;
+    text-align: right;
   }
 
   .main-content {
@@ -61,17 +64,20 @@
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .left-menu {
-    width: 50px;
+    margin-left: -150px;
+    width: 200px;
     height: 100%;
     float: left;
-    transition: width 0.3s ease-in;
+    transition: margin-left 0.3s ease-in;
+    text-align: right;
   }
 
   .left-menu-open {
     width: 200px;
     height: 100%;
     float: left;
-    transition: width 0.3s ease-in;
+    transition: margin-left 0.3s ease-in;
+    text-align: right;
   }
 
   .main-content {

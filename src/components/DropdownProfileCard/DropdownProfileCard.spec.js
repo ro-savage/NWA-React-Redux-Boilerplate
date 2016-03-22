@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react'
 import expect from 'expect'
 import { shallow, mount, render } from 'enzyme'

@@ -1,7 +1,7 @@
 /* ACTIONS */
 import debug from 'debug'
 import { browserHistory } from 'react-router'
-import { validateLogin } from '../../../api/auth'
+import { validateLogin, validateToken } from '../../../api/auth'
 import { toastr } from 'react-redux-toastr'
 
 if (__DEBUG__) {
@@ -10,13 +10,48 @@ if (__DEBUG__) {
 
 const log = debug('user-auth:debug')
 
-export const LOGIN_SUCCESS = '@@user-auth/LOGIN_REQUEST'
-export const TESTING = 'TESTING'
+export const LOGIN_SUCCESS = '@@user-auth/LOGIN_SUCCESS'
+export const LOGIN_FAIL = '@@user-auth/LOGIN_FAIL'
 
 function loginSuccess(user) {
+  console.log('loginSuccess', user)
   return {
     type: LOGIN_SUCCESS,
     user,
+  }
+}
+
+function loginFail() {
+  localStorage.removeItem('token')
+  return {
+    type: LOGIN_FAIL,
+  }
+}
+
+export const checkTokenAuth = () => {
+  const token = localStorage.getItem('userToken')
+
+  if (!token) {
+    return (dispatch) => {
+      dispatch(loginFail())
+      toastr.error('Access denied', 'You do not have access to this area. Please login.')
+      return Promise.reject() // Return promise rejection
+    }
+  }
+
+
+  return (dispatch) => { // Return func
+    return validateToken(token).then((data) => { // return promise
+      dispatch(loginSuccess(data))
+    }).catch((err) => {
+      dispatch(loginFail())
+
+      if (err && err.type && err.message) {
+        toastr.error(err.type, err.message)
+      } else {
+        toastr.error('Login error', 'Unknown error')
+      }
+    })
   }
 }
 
@@ -26,6 +61,7 @@ export const requestLogin = (creds) => {
       toastr.success('Login', 'Login Successful')
       dispatch(loginSuccess(data))
       browserHistory.push('/home')
+      localStorage.setItem('userToken', data.token)
     }).catch((err) => {
       if (err && err.type && err.message) {
         toastr.error(err.type, err.message)
@@ -42,12 +78,21 @@ export function userAuthReducer(state = { isAuthenticated: false }, action) {
 
   switch (action.type) {
     case LOGIN_SUCCESS:
-      console.log('Login success')
       newState = {
         ...state,
         isAuthenticated: true,
-        user: action.user,
+        token: action.user.token,
+        user: { email: action.user.email, role: action.user.role },
         message: 'success!',
+      }
+      break
+    case LOGIN_FAIL:
+      newState = {
+        ...state,
+        isAuthenticated: false,
+        token: '',
+        user: {},
+        message: 'fail!',
       }
       break
     default:

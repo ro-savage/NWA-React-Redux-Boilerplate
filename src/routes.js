@@ -13,24 +13,34 @@ import StyleGuidePage from 'pages/StyleGuidePage/StyleGuidePage'
 import LoginPage from 'pages/LoginPage/LoginPage'
 import TaskPage from 'pages/TaskPage/TaskPage'
 
+import { checkTokenAuth } from './redux/modules/user-auth/user-auth'
+
 export default (store) => {
   const requireLogin = (nextState, replace, cb) => {
     function checkAuth() {
-      const { userAuth: { isAuthenticated } } = store.getState()
+      const state = store.getState()
+      const isAuthenticated = state.userAuth.isAuthenticated
       if (!isAuthenticated) {
-        // oops, not logged in, so can't be here!
+        // Not authenticated. Redirect to login page
         replace('/login')
       }
+      // Allowed. So let them continue
       cb()
     }
 
-    checkAuth()
+    const { userAuth: { isAuthenticated } } = store.getState()
 
-    // if (!isAuthLoaded(store.getState())) {
-    //   store.dispatch(loadAuth()).then(checkAuth)
-    // } else {
-    //   checkAuth()
-    // }
+    if (!isAuthenticated) {
+      store.dispatch(checkTokenAuth())
+        .then(() => {
+          checkAuth()
+        })
+        .catch(() => {
+          checkAuth()
+        })
+    } else {
+      checkAuth()
+    }
   }
   return (
     // Route components without path will render their children...

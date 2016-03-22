@@ -1,7 +1,7 @@
 import React from 'react'
 import LoginForm from './LoginForm'
 import { connect } from 'react-redux'
-import { Link, browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 import { requestLogin } from '../../redux/modules/user-auth/user-auth'
 import autoBind from 'react-autobind'
 
@@ -17,7 +17,7 @@ class LoginFormContainer extends React.Component {
     autoBind(this)
     this.login.bind(this)
     this.state = {
-      username: '',
+      email: '',
       password: '',
     }
   }
@@ -33,17 +33,12 @@ class LoginFormContainer extends React.Component {
   }
 
   changePage() {
-    //http://localhost:3000/pages/about-us
-    console.log('test')
     browserHistory.push('/pages/about-us')
   }
 
   render() {
     return (
-      <div>
       <LoginForm {...this.props} {...this.state} handleChange={this.handleChange} handleLogin={this.login} />
-        <button onClick={this.changePage}>navigate</button>
-      </div>
     )
   }
 

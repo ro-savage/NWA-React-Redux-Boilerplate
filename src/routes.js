@@ -55,9 +55,6 @@ export default (store) => {
           <Route path="/styleguide" component={StyleGuidePage} />
           <Route path="/grid" component={GridPage} />
         </Route>
-          <Route path="/tasks" component={TasksPage} >
-          <Route path="/tasks/:taskId" component={TasksPage} />
-        </Route>
         <Route component={PageLayout}>
           <Route path="/tasks" component={TasksPage} >
             <Route path="/tasks/:taskId" component={TasksPage} />

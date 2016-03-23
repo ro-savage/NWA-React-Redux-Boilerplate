@@ -7,12 +7,14 @@ class TasksPage extends React.Component {
   }
   render() {
     return (
-      <div className="grid-container" style={{ height: '100%' }}>
-        <div className="grid-33 mobile-grid-100" style={{ backgroundColor: '#E2E2E2', paddingLeft: '10px', paddingRight: '0' }}>
-          <TaskList />
-        </div>
-        <div className="grid-66 mobile-grid-100" style={{ padding: '10px', backgroundColor: '#EBEBEB', height: '100%' }}>
-          <TaskPage taskId={this.props.params.taskId} />
+      <div className="flexgrid-container-fluid" style={{ height: '100%' }}>
+        <div className="row">
+          <div className="col-md-33 col-sm-50 col-xs-100" style={{ backgroundColor: '#E2E2E2', paddingLeft: '10px', paddingRight: '0' }}>
+            <TaskList />
+          </div>
+          <div className="col-md-66 col-sm-50 col-xs-100" style={{ padding: '10px', backgroundColor: '#EBEBEB', height: '100%' }}>
+            <TaskPage taskId={this.props.params.taskId} />
+          </div>
         </div>
       </div>
     )

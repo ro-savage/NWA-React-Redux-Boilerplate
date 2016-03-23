@@ -22,6 +22,13 @@ export const links = {
     defaultMessage: 'Style Guide',
   },
 
+  tasks: {
+    to: '/tasks',
+    id: 'navigation.tasks',
+    description: 'Tasks link',
+    defaultMessage: 'Tasks',
+  },
+
   logIn: {
     id: 'navigation.logIn',
     description: 'Log in',

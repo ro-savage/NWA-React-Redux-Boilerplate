@@ -82,7 +82,7 @@ class GridLayout extends React.Component {
     window.removeEventListener('resize', this.onResize)
   }
 
-  onResize(node, _event) {
+  onResize(node) {
     this.setState({
       width: node.offsetWidth,
     })

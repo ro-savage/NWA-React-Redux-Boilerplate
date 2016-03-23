@@ -56,7 +56,7 @@ const defaultTaskState = {
     0: {
       id: 0,
       title: 'Wonder #0',
-      productDesc: 'Sed tincidunt sapien iaculis metus euismod venenatis. Aliquam cursus turpis nec tempor gravida. In venenatis, leo at consectetur molestie, diam enim luctus massa, ut consequat est nunc non velit. Pellentesque cursus, justo id ornare ultrices, augue nibh sodales metus, eu ultrices felis dolor id neque.',
+      productDesc: 'Sed tincidunt sapien iaculis metus euismod venenatis. Aliquam cursus turpis nec tempor gravida. In venenatis, leo at consectetur molestie, diam enim luctus massa, ut consequat est nunc non velit. Pellentesque cursus, justo id ornare ultrices, augue nibh sodales metus, eu ultrices felis dolor id neque.', // eslint-disable-line
       productImgs: ['http://placeimg.com/100/100/animals', 'http://placeimg.com/100/100/arch', 'http://placeimg.com/100/100/nature'],
     },
   },
@@ -81,7 +81,7 @@ export function taskReducer(state = defaultTaskState, action) {
             ...action.task,
             id: newId,
             productDesc: 'This is a placeholder product description and some place holder images too.',
-            productImgs: ['http://placeimg.com/100/100/people', 'http://placeimg.com/100/100/tech', 'http://placeimg.com/100/100/animals/grayscale'],
+            productImgs: ['http://placeimg.com/100/100/people', 'http://placeimg.com/100/100/tech', 'http://placeimg.com/100/100/animals/grayscale'], // eslint-disable-line
           },
         },
       }

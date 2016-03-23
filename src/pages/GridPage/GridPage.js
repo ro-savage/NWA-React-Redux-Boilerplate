@@ -1,6 +1,6 @@
 import React from 'react'
-import ReactGridLayout, { WidthProvider } from 'react-grid-layout'
-const ReactGridLayoutWP = WidthProvider(ReactGridLayout)
+import ReactGridLayout, { WidthProvider as widthProvider } from 'react-grid-layout'
+const ReactGridLayoutWP = widthProvider(ReactGridLayout)
 
 function calculateLayoutContainer() {
   const browserWidth = window.innerWidth

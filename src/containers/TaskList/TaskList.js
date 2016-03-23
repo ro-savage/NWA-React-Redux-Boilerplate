@@ -42,7 +42,7 @@ class TaskList extends React.Component {
         <br /><br />
         <Button raised primary onClick={getTasks}>Get Tasks</Button>&nbsp; &nbsp;<AddTaskBtnDialog />
         <br /><br />
-        <ListWithBars data={this.makeArrFromObj(tasks)} currentTask={currentTask} makeCurrent={makeCurrentTask} extension={true} />
+        <ListWithBars data={this.makeArrFromObj(tasks)} currentTask={currentTask} makeCurrent={makeCurrentTask} extension />
       </div>
     )
   }

@@ -28,7 +28,7 @@ const WidthProvider = (ComposedComponent) => class extends React.Component {
     window.removeEventListener('resize', this.onWindowResize)
   }
 
-  onWindowResize(node, _event) {
+  onWindowResize(node) {
     this.setState({ width: node.offsetWidth })
   }
 

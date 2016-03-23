@@ -14,7 +14,6 @@ export const LOGIN_SUCCESS = '@@user-auth/LOGIN_SUCCESS'
 export const LOGIN_FAIL = '@@user-auth/LOGIN_FAIL'
 
 function loginSuccess(user) {
-  console.log('loginSuccess', user)
   return {
     type: LOGIN_SUCCESS,
     user,
@@ -22,14 +21,18 @@ function loginSuccess(user) {
 }
 
 function loginFail() {
-  localStorage.removeItem('token')
+  localStorage.removeItem('userToken')
   return {
     type: LOGIN_FAIL,
   }
 }
 
+function getUserToken() {
+  return localStorage.getItem('userToken')
+}
+
 export const checkTokenAuth = () => {
-  const token = localStorage.getItem('userToken')
+  const token = getUserToken()
 
   if (!token) {
     return (dispatch) => {
@@ -96,7 +99,7 @@ export function userAuthReducer(state = { isAuthenticated: false }, action) {
       }
       break
     default:
-      newState = state
+      return state
   }
 
   if (newState !== state) {

@@ -49,7 +49,6 @@ export async function getTasksData() {
 
 export async function validateToken(token) {
   console.log(token)
-
   try {
     const response = await fetch('/api/token.json')
 
@@ -67,6 +66,7 @@ export async function validateToken(token) {
 
     return await response.json()
   } catch (error) {
+    console.log('validateToken catch error', error)
     return Promise.reject({
       error,
       type: 'Login failed',

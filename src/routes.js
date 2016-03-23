@@ -47,6 +47,7 @@ export default (store) => {
     <Route component={AppContainer}>
       { /* Routes requiring login */ }
       <Route onEnter={requireLogin}>
+        <Route path="/" component={LandingPage} />
         <Route path="/styleguide" component={StyleGuidePage} />
         <Route path="/tasks" component={TaskPage} >
           <Route path="/tasks/:taskId" component={TaskPage} />
@@ -62,7 +63,7 @@ export default (store) => {
           </Route>
         </Route>
       </Route>
-      <Route path="/" component={LoginPage} />
+
       <Route path="/login" component={LoginPage} />
 
 

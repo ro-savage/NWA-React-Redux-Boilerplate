@@ -9,9 +9,12 @@ import LandingPage from 'pages/LandingPage/LandingPage'
 import AboutPage from 'pages/AboutPage/AboutPage'
 import ProfileEditPage from 'pages/ProfileEditPage/ProfileEditPage'
 
+import AppLayout from 'containers/AppLayout'
+import PageLayout from 'containers/PageLayout/PageLayout'
 import StyleGuidePage from 'pages/StyleGuidePage/StyleGuidePage'
 import LoginPage from 'pages/LoginPage/LoginPage'
-import TaskPage from 'pages/TaskPage/TaskPage'
+import GridPage from 'pages/GridPage/GridPage'
+import TasksPage from 'pages/TasksPage/TasksPage'
 
 import { checkTokenAuth } from './redux/modules/user-auth/user-auth'
 
@@ -48,9 +51,14 @@ export default (store) => {
       { /* Routes requiring login */ }
       <Route onEnter={requireLogin}>
         <Route path="/" component={LandingPage} />
-        <Route path="/styleguide" component={StyleGuidePage} />
-        <Route path="/tasks" component={TaskPage} >
-          <Route path="/tasks/:taskId" component={TaskPage} />
+        <Route component={AppLayout}>
+          <Route path="/styleguide" component={StyleGuidePage} />
+          <Route path="/grid" component={GridPage} />
+        </Route>
+        <Route component={PageLayout}>
+          <Route path="/tasks" component={TasksPage} >
+            <Route path="/tasks/:taskId" component={TasksPage} />
+          </Route>
         </Route>
         { /* until a match is found... */ }
         <Route component={HeroPageLayout}>

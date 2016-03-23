@@ -56,7 +56,7 @@ export default class AddTaskBtnDialog extends React.Component {
     ]
 
     return (
-      <div>
+      <div style={{ display: 'inline-block' }}>
         <Button icon="add" onClick={this.handleToggle} raised primary>Add Task</Button>
         <Dialog
           actions={actions}

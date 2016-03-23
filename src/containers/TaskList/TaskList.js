@@ -1,10 +1,13 @@
 import React from 'react'
-import ListWithBars from '../../components/ListWithBars/ListWithBars'
 import { connect } from 'react-redux'
 import { Button } from 'react-toolbox/lib/button'
-import { getJsonTasks, makeTaskCurrent } from '../../redux/modules/tasks/tasks'
+import { push } from 'react-router-redux'
 import autoBind from 'react-autobind'
 import rValues from 'ramda/src/values'
+
+import ListWithBars from '../../components/ListWithBars/ListWithBars'
+import AddTaskBtnDialog from '../../components/AddTaskBtnDialog/AddTaskBtnDialog'
+import { getJsonTasks, makeTaskCurrent } from '../../redux/modules/tasks/tasks'
 
 class TaskList extends React.Component {
 
@@ -37,7 +40,7 @@ class TaskList extends React.Component {
     return (
       <div>
         <br /><br />
-        <Button raised primary onClick={getTasks}>Get Tasks</Button>
+        <Button raised primary onClick={getTasks}>Get Tasks</Button>&nbsp; &nbsp;<AddTaskBtnDialog />
         <br /><br />
         <ListWithBars data={this.makeArrFromObj(tasks)} currentTask={currentTask} makeCurrent={makeCurrentTask} extension />
       </div>
@@ -51,7 +54,10 @@ const mapStateToProps = ({ tasks }) => ({ tasks: tasks.tasks, currentTask: tasks
 // Get the dispatch func and pass a prop called getTasks as a func that dispatches the getJsonTaks action creator
 const mapDispatchToProps = (dispatch) => ({
   getTasks: () => { dispatch(getJsonTasks())},
-  makeCurrentTask: (clickedComponentsProps) => { dispatch(makeTaskCurrent(clickedComponentsProps.id)) },
+  makeCurrentTask: (clickedComponentsProps) => {
+    dispatch(makeTaskCurrent(clickedComponentsProps.id))
+    dispatch(push(`/tasks/${clickedComponentsProps.id}`))
+  },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskList)

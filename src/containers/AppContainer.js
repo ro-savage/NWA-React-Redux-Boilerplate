@@ -6,6 +6,7 @@ import messages from 'translations'
 import 'styles/app.scss'
 
 const mapStateToProps = ({ language, documentTitle }) => ({ language, documentTitle })
+
 class AppContainer extends Component {
   static propTypes = {
     language: PropTypes.string.isRequired,

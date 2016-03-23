@@ -1,0 +1,149 @@
+/* LAYOUT */
+
+.layout-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.top-menu {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 50px;
+}
+
+.menu-content-container {
+  margin: 0;
+  padding: 0;
+  height: calc(100vh - 50px);
+}
+
+.burgerMenuBtn {
+  display: none !important;
+}
+
+@media (min-width: 1025px) {
+
+  .left-menu {
+    margin-left: -150px;
+    width: 200px;
+    height: 100%;
+    float: left;
+    transition: margin-left 0.3s ease-in;
+    text-align: right;
+  }
+
+  .left-menu-open {
+    width: 200px;
+    height: 100%;
+    float: left;
+    transition: margin-left 0.3s ease-in;
+    text-align: right;
+  }
+
+  .main-content {
+    float: left;
+    height: 100%;
+    width: calc(100% - 50px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: width 0.3s ease-in;
+  }
+
+  .main-content-menu-open {
+    float: left;
+    height: 100%;
+    width: calc(100% - 200px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: width 0.3s ease-in;
+  }
+
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .left-menu {
+    margin-left: -150px;
+    width: 200px;
+    height: 100%;
+    float: left;
+    transition: margin-left 0.3s ease-in;
+    text-align: right;
+  }
+
+  .left-menu-open {
+    width: 200px;
+    height: 100%;
+    float: left;
+    transition: margin-left 0.3s ease-in;
+    text-align: right;
+  }
+
+  .main-content {
+    float: left;
+    height: 100%;
+    width: calc(100% - 50px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: width 0.3s ease-in;
+  }
+
+  .main-content-menu-open {
+    float: left;
+    height: 100%;
+    width: calc(100% - 200px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: width 0.3s ease-in;
+  }
+}
+
+@media (max-width: 767px) {
+  .left-menu {
+    margin-left: -200px;
+    width: 200px;
+    height: 100%;
+    float: left;
+    transition: margin-left 0.3s ease-in;
+  }
+
+  .left-menu-open {
+    margin-left: 0;
+    width: 200px;
+    height: 100%;
+    float: left;
+    transition: margin-left 0.3s ease-in;
+  }
+
+  .main-content {
+    float: left;
+    height: 100%;
+    width: calc(100%);
+    transition: width 0.3s ease-in;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .main-content-menu-open {
+    float: left;
+    height: 100%;
+    width: calc(100% - 200px);
+    transition: width 0.3s ease-in;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .burgerMenuBtn {
+    display: initial !important;
+  }
+}
+
+.gridBox {
+  border: 1px solid black;
+  background-color: lightgrey;
+}
+
+html, body{
+  height:100%;
+}

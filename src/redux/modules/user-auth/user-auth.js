@@ -1,4 +1,4 @@
-/* ACTIONS */
+// ******* ACTIONS ********
 import debug from 'debug'
 import { browserHistory } from 'react-router'
 import { validateLogin, validateToken } from '../../../api/auth'

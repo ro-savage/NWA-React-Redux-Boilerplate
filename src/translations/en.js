@@ -23,7 +23,7 @@ export default {
   'navigation.account': 'Account',
   'navigation.faq': 'FAQ',
   'navigation.help': 'Help',
-  'navigation.home': 'Opencredo React Boilerplate',
+  'navigation.home': 'NWA React Redux Boilerplate',
   'navigation.logIn': 'Log in',
   'navigation.logOut': 'Log out',
   'navigation.policies': 'Policies',
@@ -45,5 +45,5 @@ export default {
   'profile.message.updatingUserDetails': 'Updating user details...',
   'site.message.loggingIn': 'Logging in...',
   'site.message.loggingOut': 'Logging out...',
-  'site.name': 'Opencredo React Boilerplate',
+  'site.name': 'NWA React Redux Boilerplate',
 }

@@ -1,17 +1,17 @@
 {
   "tasks": {
-  "1": {
-    "id": 1,
-    "title": "Think #1"
-  },
-  "2": {
-    "id": 2,
-    "title": "Learn #2",
-    "current": true
-  },
-  "3": {
-    "id": 3,
-    "title": "Do #3"
+    "1": {
+      "id": 1,
+      "title": "Think #1"
+    },
+    "2": {
+      "id": 2,
+      "title": "Learn #2",
+      "current": true
+    },
+    "3": {
+      "id": 3,
+      "title": "Do #3"
+    }
   }
-}
 }

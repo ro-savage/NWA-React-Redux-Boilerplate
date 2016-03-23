@@ -28,6 +28,7 @@ const karmaWebpackConfig = Object.assign({}, webpackConfig, {
 module.exports = (karmaConfig) => {
   karmaConfig.set({
 
+    // browsers: ['Chrome'],
     browsers: ['PhantomJS'],
 
     singleRun: !!process.env.CONTINUOUS_INTEGRATION,
@@ -35,7 +36,9 @@ module.exports = (karmaConfig) => {
     frameworks: ['mocha', 'sinon', 'chai'],
 
     files: [
+      './node_modules/whatwg-fetch/fetch.js',
       './node_modules/phantomjs-polyfill/bind-polyfill.js',
+      './node_modules/babel-polyfill/dist/polyfill.js',
       'tests.karma.js',
     ],
 

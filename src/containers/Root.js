@@ -2,21 +2,23 @@ import React, { PropTypes } from 'react'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router'
 import ReduxToastr from 'react-redux-toastr'
+import getRoutes from '../routes'
 
 export default class Root extends React.Component {
 
   static propTypes = {
     history: PropTypes.object.isRequired,
     store: PropTypes.object.isRequired,
-    routes: PropTypes.element.isRequired,
   };
+
+  // {this.props.routes}
 
   render() {
     return (
       <Provider store={this.props.store}>
         <div style={{ height: '100%' }}>
           <Router history={this.props.history}>
-            {this.props.routes}
+            {getRoutes(this.props.store)}
           </Router>
           <ReduxToastr />
         </div>

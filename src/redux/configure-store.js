@@ -11,9 +11,14 @@ function withDevTools(middleware) {
 }
 
 export default function configureStore(initialState, browserHistory) {
-  const routerMiddleware = syncHistory(browserHistory)
+  let middleware = applyMiddleware(thunk)
+  let routerMiddleware
 
-  let middleware = applyMiddleware(thunk, routerMiddleware)
+  if (browserHistory) {
+    routerMiddleware = syncHistory(browserHistory)
+    middleware = applyMiddleware(thunk, routerMiddleware)
+  }
+
 
   if (__DEBUG__) {
     // use devtools in debug environment
@@ -24,7 +29,9 @@ export default function configureStore(initialState, browserHistory) {
 
   if (__DEBUG__) {
     // listen for route replays (devtools)
-    routerMiddleware.listenForReplays(store)
+    if (browserHistory) {
+      routerMiddleware.listenForReplays(store)
+    }
   }
 
   if (module.hot) {
